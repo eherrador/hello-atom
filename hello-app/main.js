@@ -1,4 +1,8 @@
 var app = require('app');  // Module to control application life.
+var Menu = require('menu'); // Module to create native menus that can be used as application menu and context menu.
+var MenuItem = require('menu-item');
+var ipc = require('ipc');
+var MainMenu = require('./main-menu');
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 
 // Report crashes to our server.
