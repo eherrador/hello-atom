@@ -3,7 +3,7 @@ var messageBox = require('./message-box')
 var dialog = require('dialog'); // This module provides APIs to show native system dialogs
 
 MainMenu = function(mainWindow) {
-  var currentFile = '',
+  var currentFile = '';
 
   newFileClick = function(res) {
     console.log('New file...');
@@ -11,21 +11,21 @@ MainMenu = function(mainWindow) {
     messageBox.modified(mainMenu, function() {
 
     });
-  },
+  };
 
   openFileClick = function(res) {
     console.log('Opening a file...');
     messageBox.modified(mainMenu, function() {
 
     });
-  },
+  };
 
   save = function() {
     console.log('Saving...');
     messageBox.modified(mainMenu, function() {
 
     });
-  },
+  };
 
   this.mainWindow = mainWindow;
   this.menu = null;
@@ -91,7 +91,7 @@ MainMenu = function(mainWindow) {
   if (process.platform == 'darwin')
     Menu.setApplicationMenu(this.menu);
 
-  this.currentFile = currentFile;
+  // this.currentFile = currentFile;
   var mainMenu = this;
 }
 
