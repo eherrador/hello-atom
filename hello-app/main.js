@@ -5,6 +5,7 @@ var ipc = require('ipc');
 var MainMenu = require('./main-menu');
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
 var dialog = require('dialog');
+var Tray = require('tray');
 
 // Report crashes to our server.
 require('crash-reporter').start();
@@ -12,6 +13,7 @@ require('crash-reporter').start();
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the javascript object is GCed.
 var mainWindow = null;
+var appIcon = null;
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
@@ -23,7 +25,7 @@ app.on('window-all-closed', function() {
 // initialization and ready for creating browser windows.
 app.on('ready', function() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600, icon: __dirname + '/static/andika-logo-250.png'});
+  mainWindow = new BrowserWindow({width: 800, height: 600});
 
   // and load the index.html of the app.
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
