@@ -30,6 +30,29 @@ app.on('ready', function() {
   // Build window menu
   var mainMenu = new MainMenu(mainWindow);
 
+  mainWindow.on('close', function(event) {
+    if (confirmToClose) {
+      event.preventDefault();
+
+      var currentWindow = mainWindow
+        , messageBoxOptions = { type: "warning",
+                                buttons: ['Save & Quit', 'Cancel', 'Quit'],
+                                message: "Are you sure you want to quit?" };
+
+      dialog.showMessageBox(messageBoxOptions, function(res) {
+        if (res == 2) {
+          confirmToClose = false;
+          mainWindow.close();
+        } else if (res == 0) {
+          mainMenu.save(function() {
+            confirmToClose = false;
+            mainWindow.close();
+          });
+        }
+      });
+    }
+  });
+
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
     // Dereference the window object, usually you would store windows
