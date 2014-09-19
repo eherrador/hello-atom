@@ -28,7 +28,7 @@ app.on('ready', function() {
   mainWindow.loadUrl('file://' + __dirname + '/index.html');
 
   // Build window menu
-  var mainMenu = new MainMenu(mainWindow)
+  var mainMenu = new MainMenu(mainWindow);
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
