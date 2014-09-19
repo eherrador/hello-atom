@@ -4,6 +4,7 @@ var MenuItem = require('menu-item');
 var ipc = require('ipc');
 var MainMenu = require('./main-menu');
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
+var dialog = require('dialog');
 
 // Report crashes to our server.
 require('crash-reporter').start();
@@ -30,7 +31,7 @@ app.on('ready', function() {
   // Build window menu
   var mainMenu = new MainMenu(mainWindow);
   var confirmToClose = false;
-  
+
   mainWindow.on('close', function(event) {
     if (confirmToClose) {
       event.preventDefault();
