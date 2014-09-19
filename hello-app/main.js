@@ -29,7 +29,8 @@ app.on('ready', function() {
 
   // Build window menu
   var mainMenu = new MainMenu(mainWindow);
-
+  var confirmToClose = false;
+  
   mainWindow.on('close', function(event) {
     if (confirmToClose) {
       event.preventDefault();
