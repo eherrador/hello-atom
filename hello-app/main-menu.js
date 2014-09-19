@@ -1,3 +1,4 @@
+var app = require('app');  // Module to control application life.
 var Menu = require('menu'); // Module to create native menus that can be used as application menu and context menu.
 var messageBox = require('./message-box')
 var dialog = require('dialog'); // This module provides APIs to show native system dialogs
